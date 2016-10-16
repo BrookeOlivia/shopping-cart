@@ -1,4 +1,9 @@
 <?php session_start();
+
+// Need addistion property for unique id for update.  Add all sql changes here
+
+
+
 //set up your information here
         $hostname = "localhost";
         $database = "shoppingcart";
@@ -17,18 +22,7 @@
             
             $sql = "INSERT INTO `cart` (`quantity`, `product_id`, `product_options`, `product_size`, `cart_id`, `username`) VALUES ('" . $product_quantity . "', '" . $product_id . "', '" . $product_options . "', '" . $product_size . "', '', '" . $username . "')ON DUPLICATE UPDATE quantity ='" . $product_quantity . "', product_options = '" . $product_options . "' , product_size = '" . $product_size . "' WHERE username = '$username' AND product_id = '" . $product_id . "'";
             $result = $conn->exec( $sql );
-           
-
-           // Need to figure this update statement out.
-            
-
-
-            // $product_adjustment  =  "UPDATE products SET product_stock = product_stock - " . $product_quantity . " WHERE product_id = '". $product_id . "'"; 
-            // $adjustment = $conn->exec( $product_adjustment );
-           
-       // header("Location: http://shoppingcart.dev/viewcart.php");
-        // die();
-        
+   
         // echo "<p>Product ID: ". $product_id . "</p>";
         // echo "<p>Product Options: " . $product_options . "</p>";
         // echo "<p>Product Size: " . $product_size . "</p>";
