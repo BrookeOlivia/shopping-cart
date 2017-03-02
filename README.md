@@ -20,8 +20,6 @@ Review order
 		- billing
 		- total
 	- Back Button
-Reciepts
----------
 
 General Information
 ---------------------
