@@ -22,7 +22,8 @@ body {
 }
 
 .caption {
-    height: 130px;
+    /*height: 130px;*/
+    height: 155px;
     overflow: hidden;
 }
 
@@ -39,6 +40,7 @@ body {
     padding-left: 10px;
     color: #d17581;
     margin-bottom: 20px;
+    min-height:33px;
 }
 
 .thumbnail {
