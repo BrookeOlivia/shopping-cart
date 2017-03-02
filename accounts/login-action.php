@@ -33,7 +33,7 @@ session_start();
            if( md5 ($userPassword) === $dbP && $dbScreenname === $screenname){
                     $_SESSION['user'] = $dbUser;
                     $_SESSION['screenname'] = $dbScreenname;
-                    header("Location: /checkout/new-billing-address.php?new=0");
+                    header("Location: /accounts/index.php?new=0");
             }else{
                 header("Location: /accounts/login.php?error=5");
             }

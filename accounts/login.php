@@ -63,7 +63,7 @@ if (isset($_GET['error'])) {
                             </div>
                             <div class='equal'>
                                 <label for="user_password">Password: </label>
-                                <input type="text" id="user_password" name="user_password"/>
+                                <input type="password" id="user_password" name="user_password"/>
                                 
                             </div>
                             <div class='equal'>
