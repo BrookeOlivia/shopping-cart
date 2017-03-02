@@ -1,5 +1,7 @@
+<?php session_start(); ?>
+
+<!DOCTYPE html>
 <?php
-session_start();
     try{
         //set up your information here
             $hostname = "localhost";
@@ -13,7 +15,6 @@ session_start();
         echo "Error: ". $e;
     }
 ?>
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -24,20 +25,22 @@ session_start();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Panda - Home</title>
+    <title>Simple Panda - Product List</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/shop-homepage.css" rel="stylesheet">
+    <link href="/css/shop-homepage.css" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="/js/custom.js"></script>
 
 </head>
 
@@ -56,53 +59,32 @@ session_start();
             ?>
 
             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-
-                <div class="row carousel-holder">
-
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="Slide 1">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="Slide 2">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="Slide 3">
-                                </div>
-                            </div>
-                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
+                <div class="row">
+                    <div class="hidden-lg hidden-md col-sm-3 col-xs-12"></div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h1 class="pull-left" style='text-align:left;'>Our Products</h1>
+                        <div class="pull-right" style='padding-top: 32px;'>
+                           <a href='/products.php'><span class='glyphicon glyphicon-th' style='margin-right:10px;'></span></a><a href='/product-list.php'><span class='glyphicon glyphicon-th-list'></span></a>
                         </div>
                     </div>
-
                 </div>
-
-                <div class="row">
-
+                
                     <?php
                         foreach ($result as $row => $product) {
-                            echo "<div class='col-lg-4 col-md-4 col-sm-4 col-xs-4'>";
-                                echo "<div class='thumbnail'>";
-                                    echo "<img src='http://placehold.it/320x150' alt='" . $product['product_name'] . "'>";
+                            echo "<div class='row'><div class='col-lg-12 col-md-12 col-sm-12 col-xs-12' style='border-bottom: 1px solid #ddd; margin-bottom: 20px;'>";
+                                
+                                echo "<div class='col-lg-5 col-md-5 col-sm-5 col-xs-12'>";
+                                    echo "<img src='http://placehold.it/320x150' alt='" . $product['product_name'] . "' class='img-responsive'>";
+                                echo "</div><div class='col-lg-7 col-md-7 col-sm-7 col-xs-12'>";
                                     echo "<div class='caption'>";
+                                        echo "<h4 class='pull-right'> $" . $product['product_price'] . "</h4>";
+                                        echo "<h4><a href='/product-detail.php?product_id=" . $product['product_id'] . "' title='" . $product['product_name'] . "'>" . $product['product_name'] . "</a></h4>";
                                         
-                                        echo "<h4 style='white-space:pre-line'><a href='/product-detail.php?product_id=" . $product['product_id'] . "' title='" . $product['product_name'] . "'>" . $product['product_name'] . "</a></h4>";
-                                        echo "<h4> $" . $product['product_price'] . "</h4>";
-                                        echo "<p>" . $product['short_description'] . " <a href='/product-detail.php?product_id=" . $product['product_id'] . "' title='More Details About " . $product['product_name'] . "'>More Details</p>";
+                                        echo "<p>" . $product['short_description'] . "</p>";
+                                        
                                     echo "</div>";
                                     echo "<div class='ratings'>";
-                                        echo "<a class='pull-right btn btn-primary' href='/product-detail.php?product_id=" . $product['product_id'] . "' title='View " . $product['product_name'] . "'>View</a>"; 
+                                        echo "<a class='pull-right btn btn-primary' <a href='/product-detail.php?product_id=" . $product['product_id'] . "' title='View " . $product['product_name'] . "'>View</a>"; 
                                         if ($product['product_stock'] != 0) {
                                             echo "<a class='btn btn-primary' href='/addItem.php?product_id=" . $product['product_id'] . "&product_quantity=1";
                                             if ($product['size']) {
@@ -117,12 +99,13 @@ session_start();
                                         }
                                     echo "</div>";
                                 echo "</div>";
-                            echo "</div>";
+                            echo "</div></div>";
                         }
                     ?>
 
-                </div>
 
+                
+                
             </div>
 
         </div>
@@ -137,7 +120,7 @@ session_start();
         <!-- Footer -->
         <footer>
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12">
                     <p>Copyright &copy; Your Website 2014</p>
                 </div>
             </div>

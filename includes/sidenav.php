@@ -1,5 +1,5 @@
-<div class="col-md-3">
-    <p class="lead">Store Name</p>
+<div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+ <p class="lead">Simple Panda Clothing</p>
     <div class="list-group">
         <a href="/" class="list-group-item">Home</a>
         <a href="/about.php" class="list-group-item">About</a>

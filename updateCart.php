@@ -1,40 +1,44 @@
 <?php session_start();
-//set up your information here
-        $hostname = "localhost";
-        $database = "shoppingcart";
-        $username = "root";
-        $password = "root";
 
-    //Make a new connection object
-        $conn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
-
-            $product_id = $_GET['product_id'];        
-            $product_options = $_GET['product_options'];
-            $product_size = $_GET['product_size'];
-            $product_quantity = $_GET['product_quantity'];
-            $username = 'bbailey';
-            // echo $_SESSION['user'];
+    if (isset($_POST['product_id'])) {
+        $product_id = strip_tags( trim($_POST['product_id']));  
+    }
+    if (isset($_POST['product_option'])) {
+        $product_option = strip_tags( trim($_POST['product_option']));            
+    }else{
+        $product_option = '';
+    }
+    if (isset($_POST['cart_id'])) {
+        $cart_id = strip_tags( trim($_POST['cart_id']));            
+    }else{
+        $cart_id = '';
+    }
+    if (isset($_POST['product_size'])) {
+        $product_size = strip_tags( trim($_POST['product_size']));            
+    }else{
+        $product_size = '';
+    }
+    if (isset($_POST['product_quantity'])) {
+        $product_quantity = strip_tags( trim($_POST['product_quantity']));
+    }else{
+        $product_quantity = '';
+    }
+    if (isset($_SESSION['user'])) {
+        try{
+            //set up your information here
+                $hostname = "localhost";
+                $database = "shoppingcart";
+                $username = "root";
+                $password = "root";
+            $conn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
+            $sql = "UPDATE cart SET quantity = '" .  $product_quantity . "' , product_option = '" . $product_option . "' , product_size = '" . $product_size . "' WHERE product_id = '" . $product_id . "' AND username ='" . $_SESSION['screenname'] .  "' AND cart_id ='" . $cart_id .  "'";      
             
-            $sql = "UPDATE 'cart' SET quantitiy = '" .  $product_quantity . "' , product_options = '" . $product_options . "' , product_size = '" . $product_size . "' WHERE product_id = '" . $product_id . "' AND username ='" . $username .  "'";      
-            echo $sql;
             $result = $conn->exec( $sql );
-           
-
-           // Need to figure this update statement out.
-            
-
-
-            // $product_adjustment  =  "UPDATE products SET product_stock = product_stock - " . $product_quantity . " WHERE product_id = '". $product_id . "'"; 
-            // $adjustment = $conn->exec( $product_adjustment );
-           
-       // header("Location: http://shoppingcart.dev/viewcart.php");
-        // die();
-        
-        // echo "<p>Product ID: ". $product_id . "</p>";
-        // echo "<p>Product Options: " . $product_options . "</p>";
-        // echo "<p>Product Size: " . $product_size . "</p>";
-        // echo "<p>Product Quanity: " . $product_quantity . "</p>";
-        // echo "<p>Username: " . $username . "</p>";
-
-
+            header("Location: /viewcart.php");
+        }catch(PDOException $e){
+            echo "Error: ". $e;
+        }            
+    }else{
+        header("Location: /accounts/create-account.php");
+    }       
 ?>
