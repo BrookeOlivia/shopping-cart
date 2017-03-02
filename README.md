@@ -1,15 +1,19 @@
 CheckOut Process
 ------------------
 Billing
+---------
 	- add new address
 	- be able to select any address associated with user
 Shipping
+--------
 	- add new address
 	- be able to select any address associated with user
 Payment
+--------
 	- add new payment Method
 	- be able to select any payment method that is associated with user
 Review order
+-------------
 	- Display:
 		- tax
 		- shipping
@@ -17,6 +21,7 @@ Review order
 		- total
 	- Back Button
 Reciepts
+---------
 
 General Information
 ---------------------
