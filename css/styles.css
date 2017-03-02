@@ -1,0 +1,59 @@
+form .equal label
+{
+	float: left;
+	width: 100px;
+	display: block;
+}
+form .equal
+{
+	clear: both;
+	padding: 10px 0;
+}
+
+form.create-account .equal label
+{
+	float: left;
+	width: 125px;
+	display: block;
+}
+
+.totals td,
+.totals th
+{
+	text-align: left;
+}
+
+nav.navbar.navbar-inverse.navbar-fixed-top
+{
+	height: 95px !important;
+}
+.navbar-header{
+	height:95px;
+}
+div#bs-example-navbar-collapse-1
+{
+	position: relative;
+	/*top: 35px;*/
+}
+.container .row .col-md-9
+{
+	margin-top: 50px;
+}
+
+.container .row .col-md-3
+{
+	margin-top: 103px;
+}
+
+.container .row .col-md-3 .list-group
+{
+	/*width:16%;*/
+	/*position:fixed;*/
+	margin-top:15%;
+}
+
+.container .row .col-md-3 .lead
+{
+	margin-top:2%;
+	/*position:fixed;*/
+}

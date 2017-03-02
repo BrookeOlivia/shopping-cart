@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,13 +11,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>The Drink Express Company - About Us</title>
+    <title>Simple Panda - About Us</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/shop-homepage.css" rel="stylesheet">
+    <link href="/css/shop-homepage.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -40,13 +43,14 @@
                 include 'includes/sidenav.php';
             ?>
 
-            <div class="col-md-9">
-                <div class="col-md-12">
-                    <h1>About Drink Express</h1>
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                <div class="hidden-lg hidden-md col-sm-3 col-xs-12"></div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h1>About Simple Panda</h1>
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-12 col-lg-12 col-md-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend dictum vestibulum. Sed aliquam auctor neque, id mattis turpis sagittis quis. Nunc tortor nulla, rhoncus sit amet ipsum eu, aliquet viverra tortor. Nullam porta orci vitae nunc scelerisque, quis interdum augue condimentum. Ut eget tristique metus. Ut iaculis, tellus ac dictum congue, ipsum ligula convallis tellus, non tincidunt leo ante id ipsum. Proin convallis orci elit, eget bibendum justo placerat id. Aliquam erat volutpat. Nunc pretium pulvinar urna, nec accumsan lorem auctor in. Phasellus porttitor tellus id nibh rhoncus, efficitur egestas dolor dapibus. Suspendisse tincidunt ante sit amet quam hendrerit, sed consectetur nisl luctus. Vivamus a efficitur libero.</p>
 
                         <p>Nunc eu auctor libero. Praesent ullamcorper nulla enim, porta accumsan nulla volutpat sed. Ut lobortis, sapien posuere pharetra molestie, quam odio gravida erat, sit amet lobortis velit ligula vel sapien. Vestibulum vel mi ac orci pretium tincidunt sit amet sed lectus. Vestibulum bibendum eleifend dapibus. Cras gravida commodo rhoncus. Nullam elit arcu, viverra ac gravida ut, bibendum et ipsum. Duis auctor eleifend orci, et tincidunt erat scelerisque varius. Nam elementum, enim non lacinia porta, turpis magna ultricies lectus, non tempor sem turpis vel est. Sed et leo dolor. Maecenas volutpat arcu erat, pharetra accumsan est hendrerit quis. Fusce id congue ipsum. Aliquam mollis interdum tellus ut sagittis. Vestibulum ac urna at nulla porttitor scelerisque non non est. Pellentesque dictum nisl ligula, nec vestibulum diam pulvinar vitae.</p>
@@ -72,7 +76,7 @@
         <!-- Footer -->
         <footer>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <p>Copyright &copy; Your Website 2014</p>
                 </div>
             </div>
