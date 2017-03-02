@@ -1,23 +1,19 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <?php
-//set up your information here
-        $hostname = "localhost";
-        $database = "shoppingcart";
-        $username = "root";
-        $password = "root";
-
-    //Make a new connection object
+    try{
+        //set up your information here
+            $hostname = "localhost";
+            $database = "shoppingcart";
+            $username = "root";
+            $password = "root";
         $conn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
-
-    //write a SQL query string
-        
-
         $sql = "SELECT * FROM products";
-
-    //run the query against the connected database, then...
-    //store the result (all records matching the query)
         $result = $conn->query($sql);
-
+    }catch(PDOException $e){
+        echo "Error: ". $e;
+    }
 ?>
 <html lang="en">
 
@@ -29,13 +25,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Company - Products</title>
+    <title>Simple Panda - Products</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/shop-homepage.css" rel="stylesheet">
+    <link href="/css/shop-homepage.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,6 +40,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="/js/custom.js"></script>
 
 </head>
 
@@ -60,29 +58,52 @@
                 include 'includes/sidenav.php';
             ?>
 
-            <div class="col-md-9">
-
-                <div class="col-md-12">
-                    <h1>Our Products</h1>
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                <div class="row">
+                   
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h1 class="pull-left">Our Products</h1>
+                        <div class="pull-right" style='padding-top: 32px;'>
+                           <a href='/products.php'><span class='glyphicon glyphicon-th' style='margin-right:10px;'></span></a><a href='/product-list.php'><span class='glyphicon glyphicon-th-list'></span></a>
+                        </div>
+                    </div>
+                    
                 </div>
                 <div class="row">
                     <?php
                         foreach ($result as $row => $product) {
-                            echo "<div class='col-sm-4 col-lg-4 col-md-4'>";
+
+                            echo "<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12'>";
                                 echo "<div class='thumbnail'>";
-                                    echo "<img src='http://placehold.it/320x150' alt=''>";
+                                    echo "<img src='http://placehold.it/320x150' alt='" . $product['product_name'] . "'>";
                                     echo "<div class='caption'>";
-                                        echo "<h4 class='pull-right'>" . $product['product_name'] . "</h4>";
-                                        echo "<h4><a href='#'> $" . $product['product_price'] . "</a></h4>";
-                                        echo "<p>" . $product['short_description'] . " <a target='_blank' href='http://www.bootsnipp.com'>More Details</p>";
+                                        
+                                        echo "<h4 style='white-space:pre-line'><a href='/product-detail.php?product_id=" . $product['product_id'] . "' title='" . $product['product_name'] . "'>" . $product['product_name'] . "</a></h4>";
+                                        echo "<h4> $" . $product['product_price'] . "</h4>";
+                                        echo "<p>" . $product['short_description'] . "</p>";
+                                        
                                     echo "</div>";
                                     echo "<div class='ratings'>";
-                                        echo "<a class='btn btn-primary' target='_blank' href='/viewcart.php?" . $product['product_id'] . "'>Add to Cart</a>";
+                                        echo "<a class='pull-right btn btn-primary' href='/product-detail.php?product_id=" . $product['product_id'] . "' title='View " . $product['product_name'] . "'>View</a>"; 
+                                        if ($product['product_stock'] != 0) {
+                                            echo "<a class='btn btn-primary' href='/addItem.php?product_id=" . $product['product_id'] . "&product_quantity=1";
+                                            if ($product['size']) {
+                                                $size = explode(":",$product['size']);
+                                                echo "&product_size=" . $size[0];
+                                            }
+                                            if ($product['product_options']) {
+                                                $options = explode(":",$product['product_options']);
+                                                echo "&product_options = " . $options[0];
+                                            }
+                                            echo "' title='Add " . $product['product_name'] . " to my Cart'>Add to Cart</a>";
+                                        }
                                     echo "</div>";
                                 echo "</div>";
                             echo "</div>";
                         }
                     ?>
+
+
                 </div>
                 
             </div>
@@ -99,7 +120,7 @@
         <!-- Footer -->
         <footer>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <p>Copyright &copy; Your Website 2014</p>
                 </div>
             </div>
