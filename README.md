@@ -1,33 +1,64 @@
-# shopping-cart
+CheckOut Process
+------------------
+Billing
+	- add new address
+	- be able to select any address associated with user
+Shipping
+	- add new address
+	- be able to select any address associated with user
+Payment
+	- add new payment Method
+	- be able to select any payment method that is associated with user
+Review order
+	- Display:
+		- tax
+		- shipping
+		- billing
+		- total
+	- Back Button
+Reciepts
 
-Demo Shopping cart from scratch.
+General Information
+---------------------
+When no user is logged in then make force user to login where needed
+Update Cart
+	- Remove Items
+	- Update Totals
+Cart Display
+	- Link to individual Items
+	- Price
+	- Sizes
+	- Options
+	- Subtotal
+	- Estimated Tax
+	- Estimated Shipping
+	- Estimated Total
+	- Proceed to Checkout
+Create Account
+	- login
+	- username
+	- billing
+	- shipping
+	- payment
 
+Accounts 
+---------
+	- User Profile
+	- View All Orders
+	- View Passed Orders
+		- Dynamic Search (Datatables)
+	- View Current Orders
+		- Dyanamic Search (Datatables)
+	- View Wishlist
 
-Features
-——————
-average review
-Checkout process
-	- billing info:
-	- delivery information:
-	- Review: 
-	- Final: 
-Prices: 
-Images: 
-Favorites: 
-images: 
-Remove Cart Items:
-Adjust Item total:
-Estimate Tax:
-Estimate Shipping:
-Remove totals from stock
-Review Form
-404’s  ?
-Filter?  (datatables)?
-List vs Blocks
-every option needs it’s own code
-
-Completed Tasks:
-When sock is 0 show out of stock
-Reviews Display on form
-Cart total:
-add items to cart:
+Products
+-----------
+	- Tile View
+	- List View
+	- Detail Page
+	- View Button
+	- Add to Cart Button
+	- Dispaly Review
+	- Calculate Average Review for each product
+	- Stock - when product has been purchased remove it from the stock in the product table.
+		- When stock is 0 don't allow a user to add to their cart
