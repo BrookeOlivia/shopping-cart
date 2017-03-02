@@ -23,7 +23,7 @@ Review order
 
 General Information
 ---------------------
-When no user is logged in then make force user to login where needed
+When no user is logged in then force user to login where needed
 Update Cart
 -------------
 	- Remove Items
