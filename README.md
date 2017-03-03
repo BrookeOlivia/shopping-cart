@@ -5,19 +5,17 @@ Shopping Cart Features and Descriptions
 
 CheckOut Process
 ------------------
- - Billing
+- Billing
 	- add new address
 	- be able to select any address associated with user
 - Shipping
 
 	- add new address
 	- be able to select any address associated with user
-Payment
---------
+- Payment
 	- add new payment Method
 	- be able to select any payment method that is associated with user
-Review order
--------------
+- Review order
 	- Display:
 		- tax
 		- shipping
