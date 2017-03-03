@@ -1,3 +1,6 @@
+Shopping Cart Features and Descriptions
+---------------------------------------
+
 CheckOut Process
 ------------------
 Billing
@@ -23,7 +26,9 @@ Review order
 
 General Information
 ---------------------
-When no user is logged in then force user to login where needed
+ - When no user is logged in then force user to login where needed
+ - Free shopping Cart Template was used and then modified as needed to become fully responsive and to properly display Cart features.
+
 Update Cart
 -------------
 	- Remove Items
