@@ -1,14 +1,15 @@
+#shoppping-cart
+
 Shopping Cart Features and Descriptions
 ---------------------------------------
 
 CheckOut Process
 ------------------
-Billing
----------
+ - Billing
 	- add new address
 	- be able to select any address associated with user
-Shipping
---------
+- Shipping
+
 	- add new address
 	- be able to select any address associated with user
 Payment
