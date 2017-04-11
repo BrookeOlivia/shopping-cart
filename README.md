@@ -1,5 +1,12 @@
 #shoppping-cart
-Free Template used as well as features that came with it such as sliders. 
+Free Template was used to build site as well as the slider feature that came with the template.  
+
+DB CREDS
+-------------------------------------
+$hostname = "localhost";
+$database = "shoppingcart";
+$username = "root";
+$password = "root";
 
 Shopping Cart Features and Descriptions
 ---------------------------------------
