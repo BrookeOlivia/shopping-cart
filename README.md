@@ -1,4 +1,5 @@
 #shoppping-cart
+Free Template used as well as features that came with it such as sliders. 
 
 Shopping Cart Features and Descriptions
 ---------------------------------------
